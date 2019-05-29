@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+        <variable name="viewLogic" type="nz.co.weather.ui.locationweather.LocationWeatherViewLogic"/>
+    </data>
+
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:context=".ui.main.MainActivity"
+            android:orientation="vertical">
+
+        <com.google.android.material.appbar.AppBarLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:theme="@style/AppTheme.AppBarOverlay">
+
+            <androidx.appcompat.widget.Toolbar
+                    android:id="@+id/toolbar"
+                    android:layout_width="match_parent"
+                    android:layout_height="?attr/actionBarSize"
+                    android:background="?attr/colorPrimary"
+                    app:popupTheme="@style/AppTheme.PopupOverlay"/>
+
+        </com.google.android.material.appbar.AppBarLayout>
+        <RelativeLayout
+                android:layout_width="match_parent"
+                android:padding="@dimen/padding"
+                android:layout_height="match_parent">
+
+            <ProgressBar
+                    android:layout_centerInParent="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:visibility="@{viewLogic.loading}"/>
+
+            <LinearLayout
+                    android:visibility="@{!viewLogic.loading}"
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                <TextView
+                        style="@style/TextAppearance.AppCompat.Display2"
+                        android:text="@{viewLogic.name}"
+                        android:layout_marginBottom="@dimen/padding"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+
+                <TextView
+                        style="@style/TextAppearance.AppCompat.Display1"
+                        android:text="@{viewLogic.weather}"
+                        android:layout_marginBottom="@dimen/padding"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+
+                <TextView
+                        style="@style/TextAppearance.AppCompat.Display1"
+                        android:text="@{viewLogic.temperature}"
+                        android:layout_marginBottom="@dimen/padding"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+
+                <ImageView
+                        android:id="@+id/ivProfileImage"
+                        android:layout_width="120dp"
+                        android:layout_height="120dp"
+                        android:scaleType="fitCenter"
+                        app:imageUrl="@{viewLogic.weatherIconUrl}"
+                        tools:ignore="ContentDescription"/>
+
+            </LinearLayout>
+        </RelativeLayout>
+    </LinearLayout>
+</layout>

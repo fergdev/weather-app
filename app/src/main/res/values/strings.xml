@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">weather</string>
+    <string name="action_search">Search</string>
+    <string name="error">Error</string>
+    <string name="ok">Ok</string>
+    <string name="search_locations">Search locations</string>
+    <string name="welcome">Welcome to weather, search for you location :)</string>
+    <string name="empty_message">No locations match your search</string>
+    <string name="comma_separated">%s, %s</string>
+    <string name="format_celcius">%.2f celsius</string>
+</resources>
