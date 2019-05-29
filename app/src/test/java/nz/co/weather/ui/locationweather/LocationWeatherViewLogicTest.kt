@@ -67,7 +67,7 @@ class LocationWeatherViewLogicTest : BaseUnitTest() {
         `when`(weatherBroker.getWeather(1)).thenReturn(
             Single.just(
                 LocationWeather(
-                    1, "name", Main(1.0, 2.0, 3.0, 4.0, 5.0)
+                    1, "name", Main(285.0, 2.0, 3.0, 4.0, 5.0)
                     , listOf(Weather("main", "description", "icon")),
                     Sys("nz")
                 )
@@ -83,7 +83,7 @@ class LocationWeatherViewLogicTest : BaseUnitTest() {
         //then
         assertThat(viewLogic.loading.get(), `is`(false))
         assertThat(viewLogic.name.get(), `is`("name, nz"))
-        assertThat(viewLogic.temperature.get(), `is`("274.15 celsius"))
+        assertThat(viewLogic.temperature.get(), `is`("11.85 celsius"))
         assertThat(viewLogic.weather.get(), `is`("description"))
         assertThat(viewLogic.weatherIconUrl.get(), `is`("https://openweathermap.org/img/w/icon.png"))
     }
